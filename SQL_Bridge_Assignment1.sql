@@ -2,6 +2,10 @@
 /* Student: Magnus Skonberg */
 /* Date: July 24th 2020 */
 
+/* Purpose: to practice using SELECT and aggregation for MySQL. */
+
+/* START OF ASSIGNMENT */
+
 /* 1. Which destination in the flights database is the furthest distance away, based on information in the flights table. */
 
 SELECT * FROM flights
@@ -83,3 +87,5 @@ WHERE dep_delay > 100 /* NEW line */
 GROUP BY carrier 
 ORDER BY COUNT(*) DESC
 LIMIT 5;
+
+/* END OF ASSIGNMENT */
