@@ -1,0 +1,309 @@
+<html>
+<head>
+<title>Assignment 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+.s4 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Assignment 1</font>
+</center></td></tr></table>
+<pre><span class="s0"># CUNY SPS - Math with Python Bridge Course - Assignment 1</span>
+<span class="s0"># Student: Magnus Skonberg</span>
+<span class="s0"># Date: July 29th 2020</span>
+
+<span class="s0">### NOTES ###</span>
+<span class="s0"># 1. Due to some issues with PyCharm (constant error messages when trying to use matplotlib),</span>
+<span class="s0"># I used Jupyter notebooks to test code and then used this file on Pycharm to congregate assignment solutions.</span>
+<span class="s0"># 2. To assess validity code chunks must be run separately (ie. run exclusively Chapter 1, Programming Challenge 1</span>
+<span class="s0"># via selecting the code chunk and running or copy-pasting to a separate file or Jupyter notebook.</span>
+
+<span class="s0">###START OF ASSIGNMENT###</span>
+
+<span class="s0"># Chapter 1.  Programming Challenge 1 page 22, Even-Odd Vending Machine</span>
+<span class="s0"># Try writing an “even-odd vending machine,” which will take a number as input and do two things:</span>
+<span class="s0"># 1. Print whether the number is even or odd.</span>
+<span class="s0"># 2. Display the number followed by the next 9 even or odd numbers.</span>
+
+<span class="s0">#Take input number from user</span>
+<span class="s1">counter = </span><span class="s2">0</span>
+<span class="s1">number = input(</span><span class="s3">'Please enter a number: '</span><span class="s1">)</span>
+<span class="s1">values_string = </span><span class="s3">''</span>
+
+<span class="s4">if </span><span class="s1">(float(number).is_integer()):</span>
+    <span class="s1">int_num = int(number)</span>
+
+    <span class="s4">if </span><span class="s1">(int_num % </span><span class="s2">2 </span><span class="s1">== </span><span class="s2">0</span><span class="s1">):</span>
+        <span class="s1">print(</span><span class="s3">'The number you entered is even.'</span><span class="s1">)</span>
+    <span class="s4">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s3">'The number you entered is odd.'</span><span class="s1">)</span>
+
+    <span class="s4">while </span><span class="s1">counter &lt; </span><span class="s2">10</span><span class="s1">:</span>
+        <span class="s1">values_string += </span><span class="s3">' ' </span><span class="s1">+ str(int_num + counter * </span><span class="s2">2</span><span class="s1">)</span>
+        <span class="s1">counter += </span><span class="s2">1</span>
+
+    <span class="s1">print(</span><span class="s3">'The number sequence is:' </span><span class="s1">+ values_string)</span>
+
+<span class="s4">else</span><span class="s1">:</span>
+    <span class="s1">print(</span><span class="s3">'The number you entered is not an integer!'</span><span class="s1">)</span>
+
+
+<span class="s0"># Chapter 2.  Programming Challenge 2 page 55, Exploring a Quadratic Function Visually</span>
+<span class="s0"># Your programming challenge is to enhance this program to create a graph of the function.</span>
+<span class="s0"># Try using at least 10 values for x instead of the 6 above. Calculate the corresponding</span>
+<span class="s0"># y values using the function and then create a graph using these two sets of values.</span>
+<span class="s0"># Once you’ve created the graph, spend some time analyzing how the value of y varies with</span>
+<span class="s0"># respect to x. Is the variation linear or nonlinear?</span>
+
+<span class="s3">'''Quadratic function calculator '''</span>
+<span class="s4">import </span><span class="s1">matplotlib.pyplot </span><span class="s4">as </span><span class="s1">plt</span>
+
+<span class="s1">x_values = [-</span><span class="s2">10</span><span class="s4">,</span><span class="s1">-</span><span class="s2">5</span><span class="s4">,</span><span class="s1">-</span><span class="s2">1</span><span class="s4">, </span><span class="s2">1</span><span class="s4">, </span><span class="s2">2</span><span class="s4">, </span><span class="s2">3</span><span class="s4">, </span><span class="s2">4</span><span class="s4">, </span><span class="s2">5</span><span class="s4">,</span><span class="s2">10</span><span class="s4">,</span><span class="s2">100</span><span class="s1">]</span>
+<span class="s1">y_values = []</span>
+
+<span class="s4">for </span><span class="s1">x </span><span class="s4">in </span><span class="s1">x_values:</span>
+ <span class="s0"># Calculate the value of the quadratic function</span>
+ <span class="s1">y = x**</span><span class="s2">2 </span><span class="s1">+ </span><span class="s2">2</span><span class="s1">*x + </span><span class="s2">1</span>
+ <span class="s1">y_values.append(y) </span><span class="s0">#capture y values in a list</span>
+ <span class="s1">print(</span><span class="s3">'x={0} y={1}'</span><span class="s1">.format(x</span><span class="s4">, </span><span class="s1">y))</span>
+
+<span class="s1">plt.plot(x_values</span><span class="s4">,</span><span class="s1">y_values)</span>
+<span class="s1">plt.xlabel(</span><span class="s3">'x'</span><span class="s1">)</span>
+<span class="s1">plt.ylabel(</span><span class="s3">'y'</span><span class="s1">)</span>
+<span class="s1">plt.show()</span>
+
+<span class="s0">#visualization analysis: x and y have a non-linear, logarithmic relationship.</span>
+
+
+<span class="s0"># Chapter 3.  Programming Challenge 2 page 89, Statistics Calculator</span>
+<span class="s0"># Implement a statistics calculator that takes a list of numbers in the file</span>
+<span class="s0"># mydata.txt and then calculates and prints their mean, median, mode,</span>
+<span class="s0"># variance, and standard deviation using the functions we wrote earlier in</span>
+<span class="s0"># this chapter</span>
+
+<span class="s4">from </span><span class="s1">collections </span><span class="s4">import </span><span class="s1">Counter</span>
+
+<span class="s4">def </span><span class="s1">read_data(filename):</span>
+    <span class="s1">numbers = []</span>
+    <span class="s4">with </span><span class="s1">open(filename) </span><span class="s4">as </span><span class="s1">f:</span>
+        <span class="s4">for </span><span class="s1">line </span><span class="s4">in </span><span class="s1">f:</span>
+            <span class="s1">numbers.append(float(line))</span>
+        <span class="s4">return </span><span class="s1">numbers</span>
+
+
+<span class="s4">def </span><span class="s1">calculate_median(numbers):</span>
+    <span class="s1">N = len(numbers)</span>
+    <span class="s1">numbers.sort()</span>
+    <span class="s0"># Find the median</span>
+
+    <span class="s4">if </span><span class="s1">N % </span><span class="s2">2 </span><span class="s1">== </span><span class="s2">0</span><span class="s1">:</span>
+        <span class="s0"># if N is even</span>
+        <span class="s1">m1 = N / </span><span class="s2">2</span>
+        <span class="s1">m2 = (N / </span><span class="s2">2</span><span class="s1">) + </span><span class="s2">1</span>
+        <span class="s0"># Convert to integer, match position</span>
+        <span class="s1">m1 = int(m1) - </span><span class="s2">1</span>
+        <span class="s1">m2 = int(m2) - </span><span class="s2">1</span>
+        <span class="s1">median = (numbers[m1] + numbers[m2]) / </span><span class="s2">2</span>
+
+    <span class="s4">else</span><span class="s1">:</span>
+        <span class="s1">m = (N + </span><span class="s2">1</span><span class="s1">) / </span><span class="s2">2</span>
+        <span class="s0"># Convert to integer, match position</span>
+        <span class="s1">m = int(m) - </span><span class="s2">1</span>
+        <span class="s1">median = numbers[m]</span>
+
+    <span class="s4">return </span><span class="s1">median</span>
+
+
+<span class="s4">def </span><span class="s1">calculate_mode(numbers):</span>
+    <span class="s1">c = Counter(numbers)</span>
+    <span class="s1">numbers_freq = c.most_common()</span>
+    <span class="s1">max_count = numbers_freq[</span><span class="s2">0</span><span class="s1">][</span><span class="s2">1</span><span class="s1">]</span>
+    <span class="s1">modes = []</span>
+
+    <span class="s4">for </span><span class="s1">num </span><span class="s4">in </span><span class="s1">numbers_freq:</span>
+        <span class="s4">if </span><span class="s1">num[</span><span class="s2">1</span><span class="s1">] == max_count:</span>
+            <span class="s1">modes.append(num[</span><span class="s2">0</span><span class="s1">])</span>
+
+    <span class="s4">return </span><span class="s1">modes</span>
+
+
+<span class="s4">def </span><span class="s1">find_differences(numbers):</span>
+    <span class="s0"># Find the mean</span>
+    <span class="s1">mean = calculate_mean(numbers)</span>
+    <span class="s0"># Find the differences from the mean</span>
+    <span class="s1">diff = []</span>
+
+    <span class="s4">for </span><span class="s1">num </span><span class="s4">in </span><span class="s1">numbers:</span>
+        <span class="s1">diff.append(num - mean)</span>
+
+    <span class="s4">return </span><span class="s1">diff</span>
+
+<span class="s4">def </span><span class="s1">calculate_variance(numbers):</span>
+    <span class="s0"># Find the list of differences</span>
+    <span class="s1">diff = find_differences(numbers)</span>
+    <span class="s0"># Find the squared differences</span>
+    <span class="s1">squared_diff = []</span>
+
+    <span class="s4">for </span><span class="s1">d </span><span class="s4">in </span><span class="s1">diff:</span>
+        <span class="s1">squared_diff.append(d ** </span><span class="s2">2</span><span class="s1">)</span>
+
+    <span class="s0"># Find the variance</span>
+    <span class="s1">sum_squared_diff = sum(squared_diff)</span>
+    <span class="s1">variance = sum_squared_diff / len(numbers)</span>
+
+    <span class="s4">return </span><span class="s1">variance</span>
+
+<span class="s4">def </span><span class="s1">calculate_mean(numbers):</span>
+    <span class="s1">s = sum(numbers)</span>
+    <span class="s1">N = len(numbers)</span>
+    <span class="s1">mean = s / N</span>
+    <span class="s4">return </span><span class="s1">mean</span>
+
+<span class="s4">if </span><span class="s1">__name__ == </span><span class="s3">'__main__'</span><span class="s1">:</span>
+    <span class="s1">data = read_data(</span><span class="s3">'mydata.txt'</span><span class="s1">)</span>
+    <span class="s1">mean = calculate_mean(data)</span>
+    <span class="s1">median = calculate_median(data)</span>
+    <span class="s1">mode = calculate_mode(data)</span>
+    <span class="s1">variance = calculate_variance(data)</span>
+    <span class="s1">std = variance ** </span><span class="s2">0.5</span>
+    <span class="s1">print(</span><span class="s3">'Mean: {0}'</span><span class="s1">.format(mean))</span>
+    <span class="s1">print(</span><span class="s3">'Median: {0}'</span><span class="s1">.format(median))</span>
+    <span class="s1">print(</span><span class="s3">'Mode: {0}'</span><span class="s1">.format(mode))</span>
+    <span class="s1">print(</span><span class="s3">'Variance: {0}'</span><span class="s1">.format(variance))</span>
+    <span class="s1">print(</span><span class="s3">'Standard deviation: {0}'</span><span class="s1">.format(std))</span>
+
+
+<span class="s0"># Chapter 4.  Programming Challenge 4 page 117, Solving Single-Variable Inequalities</span>
+<span class="s0"># Now remember—your challenge is (1) to create a function, isolve(), that</span>
+<span class="s0"># will take any inequality and (2) to choose one of the appropriate functions</span>
+<span class="s0"># discussed in this section to solve it and return the solution.</span>
+
+<span class="s4">from </span><span class="s1">sympy </span><span class="s4">import </span><span class="s1">*</span>
+
+<span class="s4">def </span><span class="s1">isolve(function):</span>
+    <span class="s1">x = Symbol(</span><span class="s3">'x'</span><span class="s1">)</span>
+    <span class="s1">lhs = function.lhs</span>
+
+    <span class="s4">if </span><span class="s1">lhs.is_polynomial():</span>
+
+        <span class="s1">p = Poly(lhs</span><span class="s4">, </span><span class="s1">x)</span>
+        <span class="s1">rel = function.rel_op</span>
+
+        <span class="s4">return </span><span class="s1">solve_poly_inequality(p</span><span class="s4">, </span><span class="s1">rel)</span>
+
+    <span class="s4">elif </span><span class="s1">lhs.is_rational_function():</span>
+
+        <span class="s1">numer</span><span class="s4">, </span><span class="s1">denom = lhs.as_numer_denom()</span>
+        <span class="s1">p1 = Poly(numer)</span>
+        <span class="s1">p2 = Poly(denom)</span>
+        <span class="s1">rel = sympify(function).rel_op</span>
+
+        <span class="s4">return </span><span class="s1">solve_rational_inequalities([[((p1</span><span class="s4">, </span><span class="s1">p2)</span><span class="s4">, </span><span class="s1">rel)]])</span>
+
+    <span class="s4">else</span><span class="s1">:</span>
+
+        <span class="s4">return </span><span class="s1">solve_univariate_inequality(function</span><span class="s4">, </span><span class="s1">x</span><span class="s4">, </span><span class="s1">relational=</span><span class="s4">False</span><span class="s1">)</span>
+
+<span class="s1">f = input(</span><span class="s3">'Enter any inequality: '</span><span class="s1">)</span>
+<span class="s1">isolve(sympify(f))</span>
+
+
+<span class="s0"># Chapter 5.  Programming Challenge 2 page 143, Law of Large Numbers</span>
+<span class="s0"># According to the law of large numbers, the average value of results over</span>
+<span class="s0"># multiple trials approaches the expected value as the number of trials</span>
+<span class="s0"># increases. Your challenge in this task is to verify this law when rolling a</span>
+<span class="s0"># six-sided die for the following number of trials: 100, 1000, 10000, 100000,</span>
+<span class="s0"># and 500000.</span>
+
+<span class="s4">import </span><span class="s1">random</span>
+<span class="s4">from </span><span class="s1">sympy </span><span class="s4">import </span><span class="s1">*</span>
+
+<span class="s4">def </span><span class="s1">roll():</span>
+    <span class="s4">return </span><span class="s1">random.randint(</span><span class="s2">1</span><span class="s4">, </span><span class="s2">6</span><span class="s1">)</span>
+
+<span class="s4">def </span><span class="s1">trial_avg(trial_number):</span>
+    <span class="s1">num_rolls = </span><span class="s2">0</span>
+    <span class="s1">score = </span><span class="s2">0</span>
+
+    <span class="s4">while </span><span class="s1">num_rolls &lt; trial_number:</span>
+        <span class="s1">die_roll = roll()</span>
+        <span class="s1">num_rolls += </span><span class="s2">1</span>
+        <span class="s1">score += die_roll</span>
+
+    <span class="s1">trial_avg = score / trial_number</span>
+
+    <span class="s1">print(</span><span class="s3">'Trial number: {0} Trial average: {1}'</span><span class="s1">.format(num_rolls</span><span class="s4">, </span><span class="s1">trial_avg))</span>
+
+
+<span class="s1">trial_avg(</span><span class="s2">100</span><span class="s1">)</span>
+<span class="s1">trial_avg(</span><span class="s2">1000</span><span class="s1">)</span>
+<span class="s1">trial_avg(</span><span class="s2">10000</span><span class="s1">)</span>
+<span class="s1">trial_avg(</span><span class="s2">100000</span><span class="s1">)</span>
+<span class="s1">trial_avg(</span><span class="s2">500000</span><span class="s1">)</span>
+
+
+<span class="s0"># Chapter 7.  Programming Challenge 2 page 205, Implement the Gradient Descent</span>
+<span class="s0">#Your challenge is to implement a generic program using the gradient descent algorithm</span>
+<span class="s0">#to find the minimum value of a single-variable function specified as input by the user.</span>
+<span class="s0">#The program should also create a graph of the function and show all the intermediate values</span>
+<span class="s0">#it found before finding the minimum.</span>
+
+<span class="s3">''' 
+Use gradient descent to find the minimum value of a 
+single-variable function. This also checks for the existence 
+of a solution for the equation f'(x)=0. 
+'''</span>
+<span class="s4">import </span><span class="s1">matplotlib.pyplot </span><span class="s4">as </span><span class="s1">plt</span>
+<span class="s4">from </span><span class="s1">sympy </span><span class="s4">import </span><span class="s1">Derivative</span><span class="s4">, </span><span class="s1">Symbol</span><span class="s4">, </span><span class="s1">sympify</span><span class="s4">, </span><span class="s1">solve</span>
+
+
+<span class="s4">def </span><span class="s1">grad_descent(x0</span><span class="s4">, </span><span class="s1">f1x</span><span class="s4">, </span><span class="s1">x):</span>
+
+    <span class="s0"># Check if f1x=0 has a solution</span>
+    <span class="s4">if not </span><span class="s1">solve(f1x):</span>
+        <span class="s1">print(</span><span class="s3">'Cannot continue, solution for {0}=0 does not exist'</span><span class="s1">.format(f1x))</span>
+        <span class="s4">return</span>
+
+    <span class="s1">epsilon = </span><span class="s2">1e-6</span>
+    <span class="s1">step_size = </span><span class="s2">1e-4</span>
+    <span class="s1">x_old = x0</span>
+    <span class="s1">x_new = x_old - step_size * f1x.subs({x: x_old}).evalf()</span>
+    <span class="s1">x_list = []</span>
+
+    <span class="s4">while </span><span class="s1">abs(x_old - x_new) &gt; epsilon:</span>
+        <span class="s1">x_old = x_new</span>
+        <span class="s1">x_new = x_old - step_size * f1x.subs({x: x_old}).evalf()</span>
+        <span class="s1">x_list.append(x_new)</span>
+
+    <span class="s4">return </span><span class="s1">x_new</span><span class="s4">, </span><span class="s1">x_list</span>
+
+<span class="s4">if </span><span class="s1">__name__ == </span><span class="s3">'__main__'</span><span class="s1">:</span>
+    <span class="s1">f = input(</span><span class="s3">'Enter a function in one variable: '</span><span class="s1">)</span>
+    <span class="s1">var = input(</span><span class="s3">'Enter the variable to differentiate with respect to: '</span><span class="s1">)</span>
+    <span class="s1">var0 = float(input(</span><span class="s3">'Enter the initial value of the variable: '</span><span class="s1">))</span>
+    <span class="s4">try</span><span class="s1">:</span>
+        <span class="s1">f = sympify(f)</span>
+    <span class="s4">except </span><span class="s1">SympifyError:</span>
+        <span class="s1">print(</span><span class="s3">'Invalid function entered'</span><span class="s1">)</span>
+    <span class="s4">else</span><span class="s1">:</span>
+        <span class="s1">var = Symbol(var)</span>
+        <span class="s1">d = Derivative(f</span><span class="s4">, </span><span class="s1">var).doit()</span>
+        <span class="s1">var_min</span><span class="s4">, </span><span class="s1">x_list = grad_descent(var0</span><span class="s4">, </span><span class="s1">d</span><span class="s4">, </span><span class="s1">var)</span>
+
+        <span class="s4">if </span><span class="s1">var_min:</span>
+            <span class="s1">print(</span><span class="s3">'{0}: {1}'</span><span class="s1">.format(var.name</span><span class="s4">, </span><span class="s1">var_min))</span>
+            <span class="s1">print(</span><span class="s3">'Minimum value: {0}'</span><span class="s1">.format(f.subs({var: var_min})))</span>
+
+        <span class="s1">plt.plot(x_list)</span>
+
+<span class="s0">###END OF ASSIGNMENT###</span></pre>
+</body>
+</html>
